@@ -1,13 +1,13 @@
-#ifndef m4_freebsd_win_CONFIG_H
-#define m4_freebsd_win_CONFIG_H
+#ifndef m4_freebsd_CONFIG_H
+#define m4_freebsd_CONFIG_H
 
-#define m4_freebsd_win_VERSION_MAJOR @m4_freebsd_win_VERSION_MAJOR@
-#define m4_freebsd_win_VERSION_MINOR @m4_freebsd_win_VERSION_MINOR@
-#define m4_freebsd_win_VERSION_PATCH @m4_freebsd_win_VERSION_PATCH@
-#define m4_freebsd_win_VERSION       "@m4_freebsd_win_VERSION@"
+#define m4_freebsd_VERSION_MAJOR @m4_freebsd_VERSION_MAJOR@
+#define m4_freebsd_VERSION_MINOR @m4_freebsd_VERSION_MINOR@
+#define m4_freebsd_VERSION_PATCH @m4_freebsd_VERSION_PATCH@
+#define m4_freebsd_VERSION       "@m4_freebsd_VERSION@"
 
 #ifndef _@TARGET_ARCH@_
 #define _@TARGET_ARCH@_
 #endif /* _@TARGET_ARCH@_ */
 
-#endif /* !m4_freebsd_win_CONFIG_H */
+#endif /* !m4_freebsd_CONFIG_H */
