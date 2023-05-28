@@ -26,9 +26,7 @@
  * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
 
-#include <err.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <stdio.h>
@@ -36,6 +34,10 @@ __FBSDID("$FreeBSD$");
 #include "mdef.h"
 #include "stdd.h"
 #include "extern.h"
+
+#ifdef __CYGWIN
+#include <err.h>
+#endif
 
 FILE *traceout;
 

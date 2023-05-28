@@ -41,11 +41,9 @@
  * by: oz
  */
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
 
 #include <assert.h>
 #include <signal.h>
-#include <err.h>
 #include <errno.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -59,6 +57,10 @@ __FBSDID("$FreeBSD$");
 #include "stdd.h"
 #include "extern.h"
 #include "pathnames.h"
+
+#ifdef __CYGWIN
+#include <err.h>
+#endif
 
 stae *mstack;			/* stack of m4 machine         */
 char *sstack;			/* shadow stack, for string space extension */

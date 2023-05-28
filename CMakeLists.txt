@@ -74,7 +74,7 @@ install(
 include(InstallRequiredSystemLibraries)
 set(CPACK_BUNDLE_NAME "${PROJECT_NAME}")
 set(CPACK_PACKAGE_VENDOR "Samuel Marks")
-set(CPACK_PACKAGE_DESCRIPTION "`getopt` and `getopt_long` ported to MSVC from FreeBSD")
+set(CPACK_PACKAGE_DESCRIPTION "m4 macro language processor from FreeBSD for Windows")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "${CPACK_PACKAGE_DESCRIPTION}")
 if (APPLE)
     set(CPACK_BUNDLE_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Info.plist")

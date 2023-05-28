@@ -36,7 +36,6 @@
  */
 
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
 
 #include <sys/types.h>
 #include <errno.h>
@@ -47,12 +46,18 @@ __FBSDID("$FreeBSD$");
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
-#include <err.h>
 #include "mdef.h"
 #include "stdd.h"
 #include "extern.h"
 #include "pathnames.h"
 
+#ifdef __CYGWIN
+#include <err.h>
+#else
+#ifndef __unused
+#define __unused __attribute__((unused))
+#endif
+#endif
 
 char *ep;		/* first free char in strspace */
 static char *strspace;	/* string space for evaluation */

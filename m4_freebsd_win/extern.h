@@ -94,6 +94,20 @@ extern void do_emit_synchline(void);
 extern int exit_code;
 #define emit_synchline() do { if (synch_lines) do_emit_synchline(); } while(0)
 
+/* For catching format string mismatches */
+#ifndef __printflike
+#  define __printflike(f, v)
+#endif
+#ifndef __printf0like
+#  define __printf0like(f, v)
+#endif
+#ifndef __format_arg
+#  define __format_arg(f)
+# endif
+#ifndef __dead2
+#define    __dead2     __attribute__((__noreturn__))
+#endif
+
 /* misc.c */
 extern void	chrsave(int);
 extern char	*compute_prevep(void);

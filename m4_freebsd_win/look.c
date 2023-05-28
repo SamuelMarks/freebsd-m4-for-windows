@@ -34,7 +34,6 @@
  * SUCH DAMAGE.
  */
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
 
 /*
  * look.c
@@ -48,10 +47,19 @@ __FBSDID("$FreeBSD$");
 #include <stdint.h>
 #include <stddef.h>
 #include <string.h>
-#include "../ohash/ohash.h"
+#include <ohash.h>
 #include "mdef.h"
 #include "stdd.h"
 #include "extern.h"
+
+#ifndef __CYGWIN
+#ifndef __unused
+#define __unused __attribute__((unused))
+#endif
+#ifndef __DECONST
+#define __DECONST(type, var)   ((type)(uintptr_t)(const void*)(var))
+#endif
+#endif
 
 static void *hash_calloc(size_t, size_t, void *);
 static void hash_free(void *, void *);

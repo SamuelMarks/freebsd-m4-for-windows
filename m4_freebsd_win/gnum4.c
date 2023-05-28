@@ -27,18 +27,13 @@
  * SUCH DAMAGE.
  */
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
 
 /*
  * functions needed to support gnu-m4 extensions, including a fake freezing
  */
 
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <ctype.h>
-#include <err.h>
-#include <paths.h>
-#include <regex.h>
 #include <stdarg.h>
 #include <stddef.h>
 #include <stdlib.h>
@@ -52,6 +47,41 @@ __FBSDID("$FreeBSD$");
 #include "stdd.h"
 #include "extern.h"
 
+#ifdef __CYGWIN
+#include <sys/wait.h>
+#include <err.h>
+#include <paths.h>
+#include <regex.h>
+#else
+char* strsep(char** stringp, const char* delim)
+{
+  char* start = *stringp;
+  char* p;
+
+  p = (start != NULL) ? strpbrk(start, delim) : NULL;
+
+  if (p == NULL)
+  {
+    *stringp = NULL;
+  }
+  else
+  {
+    *p = '\0';
+    *stringp = p + 1;
+  }
+
+  return start;
+}
+
+#ifndef __DECONST
+#define __DECONST(type, var)   ((type)(uintptr_t)(const void*)(var))
+#endif
+#if !defined(_PATH_BSHELL) && (defined(__MINGW32__) || defined(__MSYS__))
+#define _PATH_BSHELL "/usr/bin/sh"
+#endif
+
+#include <pcre2posix.h>
+#endif
 
 int mimic_gnu = 0;
 

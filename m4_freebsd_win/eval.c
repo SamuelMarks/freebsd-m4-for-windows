@@ -36,8 +36,6 @@
  */
 
 #include <sys/cdefs.h>
-__FBSDID("$FreeBSD$");
-
 
 /*
  * eval.c
@@ -46,7 +44,6 @@ __FBSDID("$FreeBSD$");
  */
 
 #include <sys/types.h>
-#include <err.h>
 #include <errno.h>
 #include <limits.h>
 #include <unistd.h>
@@ -60,6 +57,11 @@ __FBSDID("$FreeBSD$");
 #include "stdd.h"
 #include "extern.h"
 #include "pathnames.h"
+
+#ifdef __CYGWIN
+#include <err.h>
+#endif
+
 
 static void	dodefn(const char *);
 static void	dopushdef(const char *, const char *);
