@@ -17,6 +17,11 @@ Specifically this adds them to all targets, tested on:
 
 *should support all versions down to ~2010 also
 
+- **Linux**
+
+  - GCC
+  - Clang
+
 ---
 
 ## License

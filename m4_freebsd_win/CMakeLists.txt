@@ -31,8 +31,10 @@ target_include_directories(
         "$<BUILD_INTERFACE:${CMAKE_BINARY_DIR}>"
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
-target_link_libraries("${EXEC_NAME}" "ohash" "strtonum")
-
+target_link_libraries("${EXEC_NAME}" "ohash" "strtonum" "${PCRE2_LIBRARIES}")
+if (CYGWIN OR LINUX)
+    target_link_libraries("${EXEC_NAME}" m)
+endif ()
 set_target_properties(
         "${EXEC_NAME}"
         PROPERTIES

@@ -76,11 +76,16 @@ char* strsep(char** stringp, const char* delim)
 #ifndef __DECONST
 #define __DECONST(type, var)   ((type)(uintptr_t)(const void*)(var))
 #endif
-#if !defined(_PATH_BSHELL) && (defined(__MINGW32__) || defined(__MSYS__))
-#define _PATH_BSHELL "/usr/bin/sh"
-#endif
 
 #include <pcre2posix.h>
+#endif
+
+#ifndef _PATH_BSHELL
+#if defined(__MINGW32__) || defined(__MSYS__)
+#define _PATH_BSHELL "/usr/bin/sh"
+#else
+#define _PATH_BSHELL "/bin/sh"
+#endif
 #endif
 
 int mimic_gnu = 0;
